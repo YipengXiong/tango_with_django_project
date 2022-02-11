@@ -23,6 +23,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -131,6 +132,8 @@ USE_TZ = True
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
+
+LOGIN_URL = 'rango:login'
 
 
 # Static files (CSS, JavaScript, Images)
