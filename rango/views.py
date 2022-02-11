@@ -8,7 +8,6 @@ from django.shortcuts import redirect
 from django.urls import reverse
 
 
-
 def index(request):
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage matches to {{ boldmessage }} in the template!
@@ -23,14 +22,15 @@ def index(request):
     # We make use of the shortcut function to make our lives easier.
     # Note that the first parameter is the template we wish to use.
     return render(request, 'rango/index.html', context=context_dict)
-    #return HttpResponse("Rango says hey there partner!  <a href='/rango/about/'>About</a>")
+    # return HttpResponse("Rango says hey there partner!  <a href='/rango/about/'>About</a>")
 
 
 def about(request):
     context_dict = {'boldmessage': 'This tutorial has been put together by Yipeng Xiong'}
     return render(request, 'rango/about.html', context=context_dict)
 
-    #return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
+    # return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
+
 
 def show_category(request, category_name_slug):
     # Create a context dictionary which we can pass
@@ -60,6 +60,7 @@ def show_category(request, category_name_slug):
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context=context_dict)
 
+
 def add_category(request):
     form = CategoryForm()
 
@@ -82,6 +83,7 @@ def add_category(request):
     # Will handle the bad form, new form, or no form supplied cases.
     # Render the form with error messages (if any).
     return render(request, 'rango/add_category.html', {'form': form})
+
 
 def add_page(request, category_name_slug):
     try:
@@ -109,5 +111,3 @@ def add_page(request, category_name_slug):
 
     context_dict = {'form': form, 'category': category}
     return render(request, 'rango/add_page.html', context=context_dict)
-
-
